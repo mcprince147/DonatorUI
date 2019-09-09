@@ -1,0 +1,67 @@
+#DonatorUI Config
+#By Hytlenz
+#Credits to Codeeeh to fix Errors
+#Property of PCP Plugins
+ 
+#Donator UI Message
+donator.title: "§lDonator Form"
+donator.content: "§fDonator Commands List. \n§bPlugin By: Hytlenz"
+
+#Cure Message
+cure.msg: "§l§8(§b!§8) §r§aYou have been §bCured!"
+#Cleansing Effect Message
+effect.msg: "§l§8(§b!§8) §r§aCleared all effects!"
+
+#Fly Message
+fly.on: "§l§8(§b!§8) §r§aFlight Enabled!"
+fly.off: "§l§8(§b!§8) §r§cFlight Disabled!"
+fly.title: "§lFly Form"
+fly.content: "§fFlyUI Access Platform"
+
+#Vanish Message
+vanish.on: "§l§8(§b!§8) §r§aYou are now Vanished!"
+vanish.off: "§l§8(§b!§8) §r§aYou are now Visible!"
+vanish.title: "§lVanish Form"
+vanish.content: "§fVanishUI Access Platform"
+
+#Nickname Message
+nickmain.title: "§lNick Main Form"
+nickmain.content: "§fChoose whether to edit or reset"
+nick.title: "§lNickname Form"
+nick.msg: "§l§8(§b!§8) §r§aYou succesfully update your nick!"
+nick.reset: "§l§8(§b!§8) §r§aYou succesfully clear your nick"
+nick.label: "§fJust set your nickname"
+
+#Gamemode Message
+gms: "§l§8(§b!§8) §r§aYou're on gamemode §bSurvival!"
+gmc: "§l§8(§b!§8) §r§aYou're on gamemode §bCreative!"
+gmsp: "§l§8(§b!§8) §r§aYou're on gamemode §bSpectator!"
+gm.content: "§fGamemodeUI Access Platform"
+gm.title: "§lGamemode Form"
+
+#Lights Message
+lights.on: "§l§8(§b!§8) §r§aLights On!"
+lights.off: "§l§8(§b!§8) §r§cLights Off!"
+lights.title: "§lLights Form"
+lights.content: "§fLightsUI Access Platform"
+
+#Crawl Message
+crawl.on: "§l§8(§b!§8) §r§aCrawl On!"
+crawl.off: "§l§8(§b!§8) §r§cCrawl Off!"
+crawl.title: "§lCrawl Form"
+crawl.content: "§fCrawlUI Access Platform"
+
+#Time Set Message
+day.time: "§l§8(§b!§8) §r§aTime Set Day!"
+night.time: "§l§8(§b!§8) §r§aTime Set Night!"
+time.title: "§lTime Set Form"
+time.content: "§fTime Set Access Platform"
+
+#Size Message
+size.baby: "§l§8(§b!§8) §r§aYour Size is Baby!"
+size.kid: "§l§8(§b!§8) §r§aYour Size is Kid!"
+size.teen: "§l§8(§b!§8) §r§aYour Size is Teen!"
+size.default: "§l§8(§b!§8) §r§aYour Size is Default!"
+size.giant: "§l§8(§b!§8) §r§aYour Size is Giant!"
+size.title: "§lSize Form"
+size.content: "§fSizeUI Access Platform"

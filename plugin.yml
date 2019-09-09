@@ -1,0 +1,10 @@
+name: DonatorUI
+version: 3.2-PCP
+main: Hytlenz\DonatorUI
+api: [3.0.0, 4.0.0]
+author: Hytlenz
+
+commands:
+  donator:
+    description: "Donator form commands"
+    permission: donator.ui
