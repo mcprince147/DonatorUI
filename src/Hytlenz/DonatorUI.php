@@ -270,7 +270,7 @@ class DonatorUI extends PluginBase implements Listener{
 				        $sender->setDisplayName("#$data[1]");
 						$sender->setNameTag("#$data[1]");
 						$sender->sendMessage($this->getConfig()->get("nick.msg"));
-						$sender->addTitle("§bNick","§aSet");
+						$sender->addTitle("§b#$data[1]","§aSet");
 					}
 				});
 				$form->setTitle($this->getConfig()->get("nick.title"));
