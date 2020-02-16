@@ -1,11 +1,13 @@
+---
 #DonatorUI Config
 #By Hytlenz
 #Credits to Codeeeh to fix Errors
 #Property of PCP Plugins
  
 #Donator UI Message
-donator.title: "§lDonator Form"
-donator.content: "§fDonator Commands List. \n§bPlugin By: Hytlenz"
+donator:
+ title: "§lDonator Form"
+ content: "§fDonator Commands List. \n§bPlugin By: Hytlenz"
 
 #Cure Message
 cure.msg: "§l§8(§b!§8) §r§aYou have been §bCured!"
@@ -13,55 +15,65 @@ cure.msg: "§l§8(§b!§8) §r§aYou have been §bCured!"
 effect.msg: "§l§8(§b!§8) §r§aCleared all effects!"
 
 #Fly Message
-fly.on: "§l§8(§b!§8) §r§aFlight Enabled!"
-fly.off: "§l§8(§b!§8) §r§cFlight Disabled!"
-fly.title: "§lFly Form"
-fly.content: "§fFlyUI Access Platform"
+fly:
+ title: "§lFly Form"
+ content: "§fFlyUI Access Platform"
+ on: "§l§8(§b!§8) §r§aFlight Enabled!"
+ off: "§l§8(§b!§8) §r§cFlight Disabled!"
 
 #Vanish Message
-vanish.on: "§l§8(§b!§8) §r§aYou are now Vanished!"
-vanish.off: "§l§8(§b!§8) §r§aYou are now Visible!"
-vanish.title: "§lVanish Form"
-vanish.content: "§fVanishUI Access Platform"
-
+vanish:
+ title: "§lVanish Form"
+ content: "§fVanishUI Access Platform"
+ on: "§l§8(§b!§8) §r§aYou are now Vanished!"
+ off: "§l§8(§b!§8) §r§aYou are now Visible!"
+ 
 #Nickname Message
-nickmain.title: "§lNick Main Form"
-nickmain.content: "§fChoose whether to edit or reset"
-nick.title: "§lNickname Form"
-nick.msg: "§l§8(§b!§8) §r§aYou succesfully update your nick!"
-nick.reset: "§l§8(§b!§8) §r§aYou succesfully clear your nick"
-nick.label: "§fJust set your nickname"
+nickmain:
+ title: "§lNick Main Form"
+ content: "§fChoose whether to edit or reset"
+nick:
+ title: "§lNickname Form"
+ msg: "§l§8(§b!§8) §r§aYou succesfully update your nick!"
+ reset: "§l§8(§b!§8) §r§aYou succesfully clear your nick"
+ label: "§fJust set your nickname"
 
 #Gamemode Message
-gms: "§l§8(§b!§8) §r§aYou're on gamemode §bSurvival!"
-gmc: "§l§8(§b!§8) §r§aYou're on gamemode §bCreative!"
-gmsp: "§l§8(§b!§8) §r§aYou're on gamemode §bSpectator!"
-gm.content: "§fGamemodeUI Access Platform"
-gm.title: "§lGamemode Form"
+gm:
+ title: "§lGamemode Form"
+ content: "§fGamemodeUI Access Platform"
+ gms: "§l§8(§b!§8) §r§aYou're on gamemode §bSurvival!"
+ gmc: "§l§8(§b!§8) §r§aYou're on gamemode §bCreative!"
+ gmsp: "§l§8(§b!§8) §r§aYou're on gamemode §bSpectator!"
 
 #Lights Message
-lights.on: "§l§8(§b!§8) §r§aLights On!"
-lights.off: "§l§8(§b!§8) §r§cLights Off!"
-lights.title: "§lLights Form"
-lights.content: "§fLightsUI Access Platform"
+lights:
+ title: "§lLights Form"
+ content: "§fLightsUI Access Platform"
+ on: "§l§8(§b!§8) §r§aLights On!"
+ off: "§l§8(§b!§8) §r§cLights Off!"
 
 #Crawl Message
-crawl.on: "§l§8(§b!§8) §r§aCrawl On!"
-crawl.off: "§l§8(§b!§8) §r§cCrawl Off!"
-crawl.title: "§lCrawl Form"
-crawl.content: "§fCrawlUI Access Platform"
+crawl:
+ title: "§lCrawl Form"
+ content: "§fCrawlUI Access Platform"
+ on: "§l§8(§b!§8) §r§aCrawl On!"
+ off: "§l§8(§b!§8) §r§cCrawl Off!"
 
 #Time Set Message
-day.time: "§l§8(§b!§8) §r§aTime Set Day!"
-night.time: "§l§8(§b!§8) §r§aTime Set Night!"
-time.title: "§lTime Set Form"
-time.content: "§fTime Set Access Platform"
-
+time:
+ title: "§lTime Set Form"
+ content: "§fTime Set Access Platform"
+ day: "§l§8(§b!§8) §r§aTime Set Day!"
+ night: "§l§8(§b!§8) §r§aTime Set Night!"
+ 
 #Size Message
-size.baby: "§l§8(§b!§8) §r§aYour Size is Baby!"
-size.kid: "§l§8(§b!§8) §r§aYour Size is Kid!"
-size.teen: "§l§8(§b!§8) §r§aYour Size is Teen!"
-size.default: "§l§8(§b!§8) §r§aYour Size is Default!"
-size.giant: "§l§8(§b!§8) §r§aYour Size is Giant!"
-size.title: "§lSize Form"
-size.content: "§fSizeUI Access Platform"
+size:
+ title: "§lSize Form"
+ content: "§fSizeUI Access Platform"
+ baby: "§l§8(§b!§8) §r§aYour Size is Baby!"
+ kid: "§l§8(§b!§8) §r§aYour Size is Kid!"
+ teen: "§l§8(§b!§8) §r§aYour Size is Teen!"
+ default: "§l§8(§b!§8) §r§aYour Size is Default!"
+ giant: "§l§8(§b!§8) §r§aYour Size is Giant!"
+...
