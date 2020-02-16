@@ -44,7 +44,7 @@ class DonatorUI extends PluginBase implements Listener{
                     	$sender->addTitle("§bThank You", "§aFor Using.");
                         break;
                     case 1:
-                    	$sender->setHealth(20);
+                    	$sender->setHealth($sender->getMaxHealth());
                     	$sender->setFood(20);
                     	$sender->sendMessage($this->getConfig()->get("cure.msg"));
                     	$sender->addTitle("§bRegenerating..", "§aHealth and Hunger filled..");
@@ -83,9 +83,9 @@ class DonatorUI extends PluginBase implements Listener{
         $form->setTitle($this->getConfig()->get("donator.title"));
         $form->setContent($this->getConfig()->get("donator.content"));
         $form->addButton("§4Exit");
-        $form->addButton("§lCure\n§rTap To Heal and Feed");
-	$form->addButton("§lCleanse\n§rTap To Clear Effects");
-        $form->addButton("§lFly\n§rTap To Glide");
+        $form->addButton($this->getConfig()->get("cure.btn"), $this->getConfig()->get("cure.img-type"), $this->getConfig()->get("cure.img-url")); //"§lCure\n§rTap To Heal and Feed"
+	$form->addButton($this->getConfig()->get("cleanse.btn"), $this->getConfig()->get("cleanse.img-type"), $this->getConfig()->get("cleanse.img-url")); //"§lCleanse\n§rTap To Clear Effects"
+        $form->addButton($this->getConfig()->get("fly.btn"), $this->getConfig()->get("fly.img-type"), $this->getConfig()->get("fly.img-url")); //"§lFly\n§rTap To Glide"
         $form->addButton("§lVanish\n§rTap To Invisible");
         $form->addButton("§lLights\n§rTap To See Dark");
         $form->addButton("§lGamemode\n§rTap To Change");
