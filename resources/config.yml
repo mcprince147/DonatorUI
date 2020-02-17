@@ -10,6 +10,20 @@
 error:
  title: "§l§cError"
  subtitle: "§4You Dont Have Permission"
+ 
+ui:
+ on:
+  btn: "§a[ ON ]\n§0Tap To Enable"
+  img-type: 0
+  img-url: "textures/ui/confirm"
+ off:
+  btn: "§c[ OFF ]\n§0Tap To Disable"
+  img-type: 0
+  img-url: "textures/ui/cancel"
+ back:
+  btn: "§l< Back"
+  img-type: 0
+  img-url: "textures/ui/refresh_light"
 
 # Main Form of Donator
 donator:
@@ -22,6 +36,8 @@ cure:
  img-type: 1
  img-url: "https://cdn2.iconfinder.com/data/icons/retro-game-items-revamp-border/100/heart_life_health_red_half-512.png"
  msg: "§l§8(§b!§8) §r§aYou have been §bCured!"
+ title: "§bRegenerating.."
+ subtitle: "§aHealth and Hunger filled.."
  
 #Cleansing Effect Message
 effect:
@@ -29,6 +45,8 @@ effect:
  img-type: 0
  img-url: "textures/ui/resistance_effect"
  msg: "§l§8(§b!§8) §r§aCleared all effects!"
+ title: "§bCleansing.."
+ subtitle: "§aLift all effects.."
 
 #Fly Message
 fly:
@@ -49,6 +67,7 @@ vanish:
  content: "§fVanishUI Access Platform"
  on: "§l§8(§b!§8) §r§aYou are now Vanished!"
  off: "§l§8(§b!§8) §r§aYou are now Visible!"
+ title: "§bVanished"
  
 #Nickname Message
 nickmain:
@@ -83,6 +102,7 @@ lights:
  content: "§fLightsUI Access Platform"
  on: "§l§8(§b!§8) §r§aLights On!"
  off: "§l§8(§b!§8) §r§cLights Off!"
+ title: "§bLights"
 
 #Crawl Message
 crawl:
