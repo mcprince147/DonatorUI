@@ -31,7 +31,7 @@ class DonatorUI extends PluginBase implements Listener{
         case "donator":
         if(!($sender instanceof Player)){
         	if($sender->hasPermission("donator.ui")){
-                $sender->sendMessage("§7This command can't be used here. Sorry!");
+                $sender->addTitle($this->getConfig()->get("error.title"), $this->getConfig()->get("error.subtitle"));
                 return true;
         }
     }
