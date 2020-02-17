@@ -3,19 +3,38 @@
 #By Hytlenz
 #Credits to Codeeeh to fix Errors
 #Property of PCP Plugins
- 
-#Donator UI Message
+#For img-type: 0 [ for resource packs images from MCPE ]
+#              1 [ from the internet ]
+
+# When a Player dont have Permission
+error:
+ title: "§l§cError"
+ subtitle: "§4You Dont Have Permission"
+
+# Main Form of Donator
 donator:
  title: "§lDonator Form"
  content: "§fDonator Commands List. \n§bPlugin By: Hytlenz"
 
 #Cure Message
-cure.msg: "§l§8(§b!§8) §r§aYou have been §bCured!"
+cure:
+ btn: "§lCure\n§rTap To Heal and Feed"
+ img-type: 1
+ img-url: "https://cdn2.iconfinder.com/data/icons/retro-game-items-revamp-border/100/heart_life_health_red_half-512.png"
+ msg: "§l§8(§b!§8) §r§aYou have been §bCured!"
+ 
 #Cleansing Effect Message
-effect.msg: "§l§8(§b!§8) §r§aCleared all effects!"
+effect:
+ btn: "§lCleanse\n§rTap To Clear Effects"
+ img-type: 0
+ img-url: "textures/ui/resistance_effect"
+ msg: "§l§8(§b!§8) §r§aCleared all effects!"
 
 #Fly Message
 fly:
+ btn: "§lFly\n§rTap To Glide"
+ img-type: 1
+ img-url: "http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Retro-P-Wing-icon.png"
  title: "§lFly Form"
  content: "§fFlyUI Access Platform"
  on: "§l§8(§b!§8) §r§aFlight Enabled!"
@@ -23,6 +42,9 @@ fly:
 
 #Vanish Message
 vanish:
+ btn:
+ img-type:
+ img-url:
  title: "§lVanish Form"
  content: "§fVanishUI Access Platform"
  on: "§l§8(§b!§8) §r§aYou are now Vanished!"
@@ -33,6 +55,9 @@ nickmain:
  title: "§lNick Main Form"
  content: "§fChoose whether to edit or reset"
 nick:
+ btn:
+ img-type:
+ img-url:
  title: "§lNickname Form"
  msg: "§l§8(§b!§8) §r§aYou succesfully update your nick!"
  reset: "§l§8(§b!§8) §r§aYou succesfully clear your nick"
@@ -40,6 +65,9 @@ nick:
 
 #Gamemode Message
 gm:
+ btn:
+ img-type:
+ img-url:
  title: "§lGamemode Form"
  content: "§fGamemodeUI Access Platform"
  gms: "§l§8(§b!§8) §r§aYou're on gamemode §bSurvival!"
@@ -48,6 +76,9 @@ gm:
 
 #Lights Message
 lights:
+ btn:
+ img-type:
+ img-url:
  title: "§lLights Form"
  content: "§fLightsUI Access Platform"
  on: "§l§8(§b!§8) §r§aLights On!"
@@ -55,6 +86,9 @@ lights:
 
 #Crawl Message
 crawl:
+ btn:
+ img-type:
+ img-url:
  title: "§lCrawl Form"
  content: "§fCrawlUI Access Platform"
  on: "§l§8(§b!§8) §r§aCrawl On!"
@@ -62,6 +96,9 @@ crawl:
 
 #Time Set Message
 time:
+ btn:
+ img-type:
+ img-url:
  title: "§lTime Set Form"
  content: "§fTime Set Access Platform"
  day: "§l§8(§b!§8) §r§aTime Set Day!"
@@ -69,6 +106,9 @@ time:
  
 #Size Message
 size:
+ btn:
+ img-type:
+ img-url:
  title: "§lSize Form"
  content: "§fSizeUI Access Platform"
  baby: "§l§8(§b!§8) §r§aYour Size is Baby!"
