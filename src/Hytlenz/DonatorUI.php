@@ -20,8 +20,8 @@ class DonatorUI extends PluginBase implements Listener{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         
         @mkdir($this->getDataFolder());
-        $this->saveDefaultConfig();
-        $this->getResource("config.yml");
+	$this->saveResource("config.yml");
+        $this->cfg = new Config($this->getDataFolder() . "config.yml", Config::YAML);
 
     }
 
@@ -31,7 +31,7 @@ class DonatorUI extends PluginBase implements Listener{
         case "donator":
         if(!($sender instanceof Player)){
         	if($sender->hasPermission("donator.ui")){
-                $sender->addTitle($this->getConfig()->get("error.title"), $this->getConfig()->get("error.subtitle"));
+                $sender->addTitle($this->cfg->getNested("error.title"), $this->cfg->getNested("error.subtitle"));
                 return true;
         }
     }
@@ -46,13 +46,13 @@ class DonatorUI extends PluginBase implements Listener{
                     case 1:
                     	$sender->setHealth($sender->getMaxHealth());
                     	$sender->setFood(20);
-                    	$sender->sendMessage($this->getConfig()->get("cure.msg"));
-                    	$sender->addTitle("§bRegenerating..", "§aHealth and Hunger filled..");
+                    	$sender->sendMessage($this->cfg->getNested("cure.msg"));
+                    	$sender->addTitle($this->cfg->getNested("cure.title"), $this->cfg->getNested("cure.subtitle"));
 			break;
 		    case 2:
 		    	$sender->removeAllEffects();
-		        $sender->sendMessage($this->getConfig()->get("effect.msg"));
-                    	$sender->addTitle("§bCleansing..", "§aLift all effects..");
+		        $sender->sendMessage($this->cfg->getNested("effect.msg"));
+                    	$sender->addTitle($this->cfg->getNested("effect.title"), $this->cfg->getNested("effect.subtitle"));
                         break;
                     case 3:
                     	$this->FlyUI($sender);
@@ -80,20 +80,22 @@ class DonatorUI extends PluginBase implements Listener{
 			break;
             }
         });
-        $form->setTitle($this->getConfig()->get("donator.title"));
-        $form->setContent($this->getConfig()->get("donator.content"));
+        $form->setTitle($this->cfg->getNested("donator.title"));
+        $form->setContent($this->cfg->getNested("donator.content"));
         $form->addButton("§4Exit");
-        $form->addButton($this->getConfig()->get("cure.btn"), $this->getConfig()->get("cure.img-type"), $this->getConfig()->get("cure.img-url"));
-	$form->addButton($this->getConfig()->get("effect.btn"), $this->getConfig()->get("effect.img-type"), $this->getConfig()->get("effect.img-url"));
-        $form->addButton($this->getConfig()->get("fly.btn"), $this->getConfig()->get("fly.img-type"), $this->getConfig()->get("fly.img-url")); 
-        $form->addButton($this->getConfig()->get("vanish.btn"), $this->getConfig()->get("vanish.img-type"), $this->getConfig()->get("vanish.img-url"));
-        $form->addButton($this->getConfig()->get("lights.btn"), $this->getConfig()->get("lights.img-type"), $this->getConfig()->get("lights.img-url")); 
-        $form->addButton($this->getConfig()->get("gm.btn"), $this->getConfig()->get("gm.img-type"), $this->getConfig()->get("gm.img-url"));
-        $form->addButton($this->getConfig()->get("nick.btn"), $this->getConfig()->get("nick.img-type"), $this->getConfig()->get("nick.img-url"));
-	$form->addButton($this->getConfig()->get("crawl.btn"), $this->getConfig()->get("crawl.img-type"), $this->getConfig()->get("crawl.img-url"));
-	$form->addButton($this->getConfig()->get("time.btn"), $this->getConfig()->get("time.img-type"), $this->getConfig()->get("time.img-url"));
-	$form->addButton($this->getConfig()->get("size.btn"), $this->getConfig()->get("size.img-type"), $this->getConfig()->get("size.img-url"));
+        $form->addButton($this->cfg->getNested("cure.btn"), $this->cfg->getNested("cure.img-type"), $this->cfg->getNested("cure.img-url"));
+	$form->addButton($this->cfg->getNested("effect.btn"), $this->cfg->getNested("effect.img-type"), $this->cfg->getNested("effect.img-url"));
+        $form->addButton($this->cfg->getNested("fly.btn"), $this->cfg->getNested("fly.img-type"), $this->cfg->getNested("fly.img-url")); 
+        $form->addButton($this->cfg->getNested("vanish.btn"), $this->cfg->getNested("vanish.img-type"), $this->cfg->getNested("vanish.img-url"));
+        $form->addButton($this->cfg->getNested("lights.btn"), $this->cfg->getNested("lights.img-type"), $this->cfg->getNested("lights.img-url")); 
+        $form->addButton($this->cfg->getNested("gm.btn"), $this->cfg->getNested("gm.img-type"), $this->cfg->getNested("gm.img-url"));
+        $form->addButton($this->cfg->getNested("nick.btn"), $this->cfg->getNested("nick.img-type"), $this->cfg->getNested("nick.img-url"));
+	$form->addButton($this->cfg->getNested("crawl.btn"), $this->cfg->getNested("crawl.img-type"), $this->cfg->getNested("crawl.img-url"));
+	$form->addButton($this->cfg->getNested("time.btn"), $this->cfg->getNested("time.img-type"), $this->cfg->getNested("time.img-url"));
+	$form->addButton($this->cfg->getNested("size.btn"), $this->cfg->getNested("size.img-type"), $this->cfg->getNested("size.img-url"));
+	//Soon Capes, Wings, Particles etc.
         $form->sendToPlayer($sender);     
+	
         }
         return true;
     }
@@ -111,23 +113,23 @@ class DonatorUI extends PluginBase implements Listener{
                     case 1:
 			$sender->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, true);
 			$sender->setNameTagVisible(false);
-			$sender->addTitle("§bVanised", "§aOn");
-                    	$sender->sendMessage($this->getConfig()->get("vanish.on"));
+			$sender->addTitle($this->cfg->getNested("vanish.title"), $this->cfg->getNested("vanish.on"));
+                    	$sender->sendMessage($this->cfg->getNested("vanish.on"));
                         break;
                     case 2:
                     	$sender->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, false);
 			$sender->setNameTagVisible(true);
-			$sender->addTitle("§bVanished", "§cOff");
-                    	$sender->sendMessage($this->getConfig()->get("vanish.off"));
+			$sender->addTitle($this->cfg->getNested("vanish.title"), $this->cfg->getNested("vanish.off"));
+                    	$sender->sendMessage($this->cfg->getNested("vanish.off"));
                         break;
                     	
             }
         });
-        $form->setTitle($this->getConfig()->get("vanish.title"));
-        $form->setContent($this->getConfig()->get("vanish.content"));
-        $form->addButton("§lBack");
-        $form->addButton("§l§2On");
-        $form->addButton("§l§4Off");
+        $form->setTitle($this->cfg->getNested("vanish.title"));
+        $form->setContent($this->cfg->getNested("vanish.content"));
+        $form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
+        $form->addButton($this->cfg->getNested("ui.on.btn"), $this->cfg->getNested("ui.on.img-type"), $this->cfg->getNested("ui.on.img-url"));
+	$form->addButton($this->cfg->getNested("ui.off.btn"), $this->cfg->getNested("ui.off.img-type"), $this->cfg->getNested("ui.off.img-url"));
         $form->sendToPlayer($sender);
         }
         
@@ -143,21 +145,21 @@ class DonatorUI extends PluginBase implements Listener{
 			break;
                     case 1:
                     	$sender->addEffect(new EffectInstance(Effect::getEffect(Effect::NIGHT_VISION), 99999999, 0, false));
-                    	$sender->addTitle("§bLights", "§aOn");
-                    	$sender->sendMessage($this->getConfig()->get("lights.on"));
+                    	$sender->addTitle($this->cfg->getNested("lights.title"), $this->cfg->getNested("lights.on"));
+                    	$sender->sendMessage($this->cfg->getNested("lights.on"));
                         break;
                     case 2:
                     	$sender->removeEffect(Effect::NIGHT_VISION);
-                    	$sender->addTitle("§bLights", "§cOff");
-			$sender->sendMessage($this->getConfig->get("lights.off"));
+                    	$sender->addTitle($this->cfg->getNested("lights.title"), $this->cfg->getNested("lights.off"));
+			$sender->sendMessage($this->cfg->getNested("lights.off"));
                         break;
             }
         });
-        $form->setTitle($this->getConfig()->get("lights.title"));
-        $form->setContent($this->getConfig()->get("lights.content"));
-        $form->addButton("§lBack");
-        $form->addButton("§l§2On");
-        $form->addButton("§l§4Off");
+        $form->setTitle($this->cfg->getNested("lights.title"));
+        $form->setContent($this->cfg->getNested("lights.content"));
+        $form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
+        $form->addButton($this->cfg->getNested("ui.on.btn"), $this->cfg->getNested("ui.on.img-type"), $this->cfg->getNested("ui.on.img-url"));
+	$form->addButton($this->cfg->getNested("ui.off.btn"), $this->cfg->getNested("ui.off.img-type"), $this->cfg->getNested("ui.off.img-url"));
         $form->sendToPlayer($sender);
         }
         
