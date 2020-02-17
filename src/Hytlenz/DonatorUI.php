@@ -83,16 +83,16 @@ class DonatorUI extends PluginBase implements Listener{
         $form->setTitle($this->getConfig()->get("donator.title"));
         $form->setContent($this->getConfig()->get("donator.content"));
         $form->addButton("§4Exit");
-        $form->addButton($this->getConfig()->get("cure.btn"), $this->getConfig()->get("cure.img-type"), $this->getConfig()->get("cure.img-url")); //"§lCure\n§rTap To Heal and Feed"
-	$form->addButton($this->getConfig()->get("cleanse.btn"), $this->getConfig()->get("cleanse.img-type"), $this->getConfig()->get("cleanse.img-url")); //"§lCleanse\n§rTap To Clear Effects"
-        $form->addButton($this->getConfig()->get("fly.btn"), $this->getConfig()->get("fly.img-type"), $this->getConfig()->get("fly.img-url")); //"§lFly\n§rTap To Glide"
-        $form->addButton("§lVanish\n§rTap To Invisible");
-        $form->addButton("§lLights\n§rTap To See Dark");
-        $form->addButton("§lGamemode\n§rTap To Change");
-        $form->addButton("§lNickname\n§rTap To Set Name");
-	$form->addButton("§lCrawl\n§rTap To Climb Walls");
-	$form->addButton("§lTime Set\n§rTap To Set Time");
-	$form->addButton("§lSize\n§rTap To Set Height");
+        $form->addButton($this->getConfig()->get("cure.btn"), $this->getConfig()->get("cure.img-type"), $this->getConfig()->get("cure.img-url"));
+	$form->addButton($this->getConfig()->get("effect.btn"), $this->getConfig()->get("effect.img-type"), $this->getConfig()->get("effect.img-url"));
+        $form->addButton($this->getConfig()->get("fly.btn"), $this->getConfig()->get("fly.img-type"), $this->getConfig()->get("fly.img-url")); 
+        $form->addButton($this->getConfig()->get("vanish.btn"), $this->getConfig()->get("vanish.img-type"), $this->getConfig()->get("vanish.img-url"));
+        $form->addButton($this->getConfig()->get("lights.btn"), $this->getConfig()->get("lights.img-type"), $this->getConfig()->get("lights.img-url")); 
+        $form->addButton($this->getConfig()->get("gm.btn"), $this->getConfig()->get("gm.img-type"), $this->getConfig()->get("gm.img-url"));
+        $form->addButton($this->getConfig()->get("nick.btn"), $this->getConfig()->get("nick.img-type"), $this->getConfig()->get("nick.img-url"));
+	$form->addButton($this->getConfig()->get("crawl.btn"), $this->getConfig()->get("crawl.img-type"), $this->getConfig()->get("crawl.img-url"));
+	$form->addButton($this->getConfig()->get("time.btn"), $this->getConfig()->get("time.img-type"), $this->getConfig()->get("time.img-url"));
+	$form->addButton($this->getConfig()->get("size.btn"), $this->getConfig()->get("size.img-type"), $this->getConfig()->get("size.img-url"));
         $form->sendToPlayer($sender);     
         }
         return true;
@@ -303,12 +303,12 @@ class DonatorUI extends PluginBase implements Listener{
                	case 0:
                 	$sender->getLevel()->setTime(0);
                 	$sender->addTitle("§bDay", "§aTime");
-                	$sender->sendMessage($this->getConfig()->get("day.time"));
+                	$sender->sendMessage($this->getConfig()->get("time.day"));
                     	break;
                 case 1:
 			$sender->getLevel()->setTime(15000);
                 	$sender->addTitle("§bNight", "§aTime");
-                	$sender->sendMessage($this->getConfig()->get("night.time"));
+                	$sender->sendMessage($this->getConfig()->get("time.night"));
                     	break;
                default:
                    return;
