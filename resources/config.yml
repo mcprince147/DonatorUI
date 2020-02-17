@@ -10,7 +10,8 @@
 error:
  title: "§l§cError"
  subtitle: "§4You Dont Have Permission"
- 
+
+# UI Message
 ui:
  on:
   btn: "§a[ ON ]\n§0Tap To Enable"
@@ -57,6 +58,7 @@ fly:
  content: "§fFlyUI Access Platform"
  on: "§l§8(§b!§8) §r§aFlight Enabled!"
  off: "§l§8(§b!§8) §r§cFlight Disabled!"
+ title: "§bFly"
 
 #Vanish Message
 vanish:
