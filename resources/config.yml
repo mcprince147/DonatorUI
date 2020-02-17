@@ -42,9 +42,9 @@ fly:
 
 #Vanish Message
 vanish:
- btn:
- img-type:
- img-url:
+ btn: "§lVanish\n§rTap To Invisible"
+ img-type: 0
+ img-url: "textures/ui/invisibility_effect"
  title: "§lVanish Form"
  content: "§fVanishUI Access Platform"
  on: "§l§8(§b!§8) §r§aYou are now Vanished!"
@@ -55,9 +55,9 @@ nickmain:
  title: "§lNick Main Form"
  content: "§fChoose whether to edit or reset"
 nick:
- btn:
- img-type:
- img-url:
+ btn: "§lNickname\n§rTap To Set Name"
+ img-type: 0
+ img-url: "textures/ui/editIcon"
  title: "§lNickname Form"
  msg: "§l§8(§b!§8) §r§aYou succesfully update your nick!"
  reset: "§l§8(§b!§8) §r§aYou succesfully clear your nick"
@@ -65,9 +65,9 @@ nick:
 
 #Gamemode Message
 gm:
- btn:
- img-type:
- img-url:
+ btn: "§lGamemode\n§rTap To Change"
+ img-type: 1
+ img-url: "http://pixelartmaker.com/art/8acb9305a104342.png"
  title: "§lGamemode Form"
  content: "§fGamemodeUI Access Platform"
  gms: "§l§8(§b!§8) §r§aYou're on gamemode §bSurvival!"
@@ -76,9 +76,9 @@ gm:
 
 #Lights Message
 lights:
- btn:
- img-type:
- img-url:
+ btn: "§lLights\n§rTap To See Dark"
+ img-type: 1
+ img-url: "http://pixelartmaker.com/art/ca275debfce9b8f.png"
  title: "§lLights Form"
  content: "§fLightsUI Access Platform"
  on: "§l§8(§b!§8) §r§aLights On!"
@@ -86,9 +86,9 @@ lights:
 
 #Crawl Message
 crawl:
- btn:
- img-type:
- img-url:
+ btn: "§lCrawl\n§rTap To Climb Walls"
+ img-type: 0
+ img-url: "textures/ui/conduit_power_effect"
  title: "§lCrawl Form"
  content: "§fCrawlUI Access Platform"
  on: "§l§8(§b!§8) §r§aCrawl On!"
@@ -96,9 +96,9 @@ crawl:
 
 #Time Set Message
 time:
- btn:
- img-type:
- img-url:
+ btn: "§lTime Set\n§rTap To Set Time"
+ img-type: 1
+ img-url: "https://icons-for-free.com/iconfiles/png/512/clock-131982518664520262.png"
  title: "§lTime Set Form"
  content: "§fTime Set Access Platform"
  day: "§l§8(§b!§8) §r§aTime Set Day!"
@@ -106,9 +106,9 @@ time:
  
 #Size Message
 size:
- btn:
- img-type:
- img-url:
+ btn: "§lSize\n§rTap To Set Height"
+ img-type: 1
+ img-url: "http://pixelartmaker.com/art/2db4947743de840.png"
  title: "§lSize Form"
  content: "§fSizeUI Access Platform"
  baby: "§l§8(§b!§8) §r§aYour Size is Baby!"
