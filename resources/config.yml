@@ -73,7 +73,7 @@ gm:
  gms: "§l§8(§b!§8) §r§aYou're on gamemode §bSurvival!"
  gmc: "§l§8(§b!§8) §r§aYou're on gamemode §bCreative!"
  gmsp: "§l§8(§b!§8) §r§aYou're on gamemode §bSpectator!"
-
+ 
 #Lights Message
 lights:
  btn: "§lLights\n§rTap To See Dark"
