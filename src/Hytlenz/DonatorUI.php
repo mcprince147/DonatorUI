@@ -175,21 +175,21 @@ class DonatorUI extends PluginBase implements Listener{
 			break;
                     case 1:
                     	$sender->setAllowFlight(true);
-                    	$sender->sendMessage($this->getConfig()->get("fly.on"));
-                    	$sender->addTitle("§bFly", "§aEnabled!");
+                    	$sender->sendMessage($this->cfg->getNested("fly.on"));
+                    	$sender->addTitle($this->cfg->getNested("fly.title"), $this->cfg->getNested("fly.on"));
                         break;
                     case 2:
                     	$sender->setAllowFlight(false);
-                    	$sender->sendMessage($this->getConfig()->get("fly.off"));
-                    	$sender->addTitle("§bFly", "§cDisabled!");
+                    	$sender->sendMessage($this->cfg->getNested("fly.off"));
+                    	$sender->addTitle($this->cfg->getNested("fly.title"), $this->cfg->getNested("fly.off"));
                         break;
             }
         });
-        $form->setTitle($this->getConfig()->get("fly.title"));
-        $form->setContent($this->getConfig()->get("fly.content"));
-        $form->addButton("§lBack");
-        $form->addButton("§l§2On");
-        $form->addButton("§l§4Off");
+        $form->setTitle($this->cfg->getNested("fly.title"));
+        $form->setContent($this->cfg->getNested("fly.content"));
+	$form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
+        $form->addButton($this->cfg->getNested("ui.on.btn"), $this->cfg->getNested("ui.on.img-type"), $this->cfg->getNested("ui.on.img-url"));
+	$form->addButton($this->cfg->getNested("ui.off.btn"), $this->cfg->getNested("ui.off.img-type"), $this->cfg->getNested("ui.off.img-url"));
         $form->sendToPlayer($sender);
         }
         
@@ -199,18 +199,15 @@ class DonatorUI extends PluginBase implements Listener{
                  switch($data[1]) {
                 case 0:
                 	$sender->setGamemode(Player::SURVIVAL);
-                	$sender->addTitle("§bSurvival", "§aMode");
-                	$sender->sendMessage($this->getConfig()->get("gms"));
+                	$sender->sendMessage($this->cfg->getNested("gm.gms"));
                     	break;
                 case 1:
                 	$sender->setGamemode(Player::CREATIVE);
-                	$sender->addTitle("§bCreative", "§aMode");
-                	$sender->sendMessage($this->getConfig()->get("gmc"));
+                	$sender->sendMessage($this->cfg->getNested("gm.gmc"));
                     	break;
                 case 2:
                 	$sender->setGamemode(Player::SPECTATOR);
-                	$sender->addTitle("§bSpectator", "§aMode");
-                	$sender->sendMessage($this->getConfig()->get("gmsp"));
+                	$sender->sendMessage($this->cfg->getNested("gm.gmsp"));
                     	break;
                	default:
                    	return;
