@@ -215,8 +215,8 @@ class DonatorUI extends PluginBase implements Listener{
   }
 
     });
-    $form->setTitle($this->getConfig()->get("gm.title"));
-    $form->addLabel($this->getConfig()->get("gm.content"));
+    $form->setTitle($this->cfg->getNested("gm.title"));
+    $form->addLabel($this->cfg->getNested("gm.content"));
     $form->addDropdown("Gamemodes", ["Survival", "Creative", "Spectator"]);
     $form->sendToPlayer($sender);
     }
@@ -237,16 +237,15 @@ class DonatorUI extends PluginBase implements Listener{
                     case 2:
                     	$sender->setDisplayName($sender->getName());
                     	$sender->setNameTag($sender->getName());
-                    	$sender->sendMessage($this->getConfig()->get("nick.reset"));
-                    	$sender->addTitle("§bNick", "§aReset!");
+                    	$sender->sendMessage($this->cfg->getNested("nick.reset"));
                         break;
             }
         });
-        $form->setTitle($this->getConfig()->get("nickmain.title"));
-        $form->setContent($this->getConfig()->get("nickmain.content"));
-        $form->addButton("§lBack");
-        $form->addButton("§lEdit Nick");
-        $form->addButton("§lReset Nick");
+        $form->setTitle($this->cfg->getNested("nickmain.title"));
+        $form->setContent($this->cfg->getNested("nickmain.content"));
+        $form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
+        $form->addButton($this->cfg->getNested("nickmain.edit.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
+        $form->addButton($this->cfg->getNested("nickmain.reset.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
         $form->sendToPlayer($sender);
         }
      
