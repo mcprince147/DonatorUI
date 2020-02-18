@@ -26,6 +26,14 @@ ui:
   img-type: 0
   img-url: "textures/ui/refresh_light"
 
+# Exit Message and Button
+exit:
+ title: "§bThank You"
+ subtitle: "§aFor Using."
+ btn: "§4Exit"
+ img-type: 0
+ img-url: ""
+
 # Main Form of Donator
 donator:
  title: "§lDonator Form"
@@ -147,6 +155,24 @@ size:
  teen: "§l§8(§b!§8) §r§aYour Size is Teen!"
  default: "§l§8(§b!§8) §r§aYour Size is Default!"
  giant: "§l§8(§b!§8) §r§aYour Size is Giant!"
- 
- #EDIT KITA LATER GAGO
+ baby-button:
+  btn: "§lBaby"
+  img-type: 1
+  img-url: "textures/ui/conduit_power_effect"
+ kid-button:
+  btn: "§lKid"
+  img-type: 1
+  img-url: "textures/ui/conduit_power_effect"
+ teen-button:
+  btn: "§lTeen"
+  img-type: 1
+  img-url: "textures/ui/conduit_power_effect"
+ default-button:
+  btn: "§lDefault"
+  img-type: 1
+  img-url: "textures/ui/conduit_power_effect"
+ giant-button:
+  btn: "§lGiant"
+  img-type: 1
+  img-url: "textures/ui/conduit_power_effect"
 ...
