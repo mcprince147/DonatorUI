@@ -54,7 +54,7 @@ fly:
  btn: "§lFly\n§rTap To Glide"
  img-type: 1
  img-url: "http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Retro-P-Wing-icon.png"
- title: "§lFly Form"
+ title-form: "§lFly Form"
  content: "§fFlyUI Access Platform"
  on: "§l§8(§b!§8) §r§aFlight Enabled!"
  off: "§l§8(§b!§8) §r§cFlight Disabled!"
@@ -65,7 +65,7 @@ vanish:
  btn: "§lVanish\n§rTap To Invisible"
  img-type: 0
  img-url: "textures/ui/invisibility_effect"
- title: "§lVanish Form"
+ title-form: "§lVanish Form"
  content: "§fVanishUI Access Platform"
  on: "§l§8(§b!§8) §r§aYou are now Vanished!"
  off: "§l§8(§b!§8) §r§aYou are now Visible!"
@@ -75,11 +75,20 @@ vanish:
 nickmain:
  title: "§lNick Main Form"
  content: "§fChoose whether to edit or reset"
+ edit:
+  btn: "§lEdit Nick"
+  img-type: 0
+  img-url: ""
+ reset:
+  btn: "§lReset Nick"
+  img-type: 0
+  img-url: ""
+
 nick:
  btn: "§lNickname\n§rTap To Set Name"
  img-type: 0
  img-url: "textures/ui/editIcon"
- title: "§lNickname Form"
+ title-form: "§lNickname Form"
  msg: "§l§8(§b!§8) §r§aYou succesfully update your nick!"
  reset: "§l§8(§b!§8) §r§aYou succesfully clear your nick"
  label: "§fJust set your nickname"
@@ -89,7 +98,7 @@ gm:
  btn: "§lGamemode\n§rTap To Change"
  img-type: 1
  img-url: "http://pixelartmaker.com/art/8acb9305a104342.png"
- title: "§lGamemode Form"
+ title-form: "§lGamemode Form"
  content: "§fGamemodeUI Access Platform"
  gms: "§l§8(§b!§8) §r§aYou're on gamemode §bSurvival!"
  gmc: "§l§8(§b!§8) §r§aYou're on gamemode §bCreative!"
@@ -100,7 +109,7 @@ lights:
  btn: "§lLights\n§rTap To See Dark"
  img-type: 1
  img-url: "http://pixelartmaker.com/art/ca275debfce9b8f.png"
- title: "§lLights Form"
+ title-form: "§lLights Form"
  content: "§fLightsUI Access Platform"
  on: "§l§8(§b!§8) §r§aLights On!"
  off: "§l§8(§b!§8) §r§cLights Off!"
@@ -111,7 +120,7 @@ crawl:
  btn: "§lCrawl\n§rTap To Climb Walls"
  img-type: 0
  img-url: "textures/ui/conduit_power_effect"
- title: "§lCrawl Form"
+ title-form: "§lCrawl Form"
  content: "§fCrawlUI Access Platform"
  on: "§l§8(§b!§8) §r§aCrawl On!"
  off: "§l§8(§b!§8) §r§cCrawl Off!"
@@ -121,7 +130,7 @@ time:
  btn: "§lTime Set\n§rTap To Set Time"
  img-type: 1
  img-url: "https://icons-for-free.com/iconfiles/png/512/clock-131982518664520262.png"
- title: "§lTime Set Form"
+ title-form: "§lTime Set Form"
  content: "§fTime Set Access Platform"
  day: "§l§8(§b!§8) §r§aTime Set Day!"
  night: "§l§8(§b!§8) §r§aTime Set Night!"
@@ -131,7 +140,7 @@ size:
  btn: "§lSize\n§rTap To Set Height"
  img-type: 1
  img-url: "http://pixelartmaker.com/art/2db4947743de840.png"
- title: "§lSize Form"
+ title-form: "§lSize Form"
  content: "§fSizeUI Access Platform"
  baby: "§l§8(§b!§8) §r§aYour Size is Baby!"
  kid: "§l§8(§b!§8) §r§aYour Size is Kid!"
