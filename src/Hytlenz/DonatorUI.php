@@ -125,7 +125,7 @@ class DonatorUI extends PluginBase implements Listener{
                     	
             }
         });
-        $form->setTitle($this->cfg->getNested("vanish.title"));
+        $form->setTitle($this->cfg->getNested("vanish.title-form"));
         $form->setContent($this->cfg->getNested("vanish.content"));
         $form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
         $form->addButton($this->cfg->getNested("ui.on.btn"), $this->cfg->getNested("ui.on.img-type"), $this->cfg->getNested("ui.on.img-url"));
@@ -155,7 +155,7 @@ class DonatorUI extends PluginBase implements Listener{
                         break;
             }
         });
-        $form->setTitle($this->cfg->getNested("lights.title"));
+        $form->setTitle($this->cfg->getNested("lights.title-form"));
         $form->setContent($this->cfg->getNested("lights.content"));
         $form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
         $form->addButton($this->cfg->getNested("ui.on.btn"), $this->cfg->getNested("ui.on.img-type"), $this->cfg->getNested("ui.on.img-url"));
@@ -185,7 +185,7 @@ class DonatorUI extends PluginBase implements Listener{
                         break;
             }
         });
-        $form->setTitle($this->cfg->getNested("fly.title"));
+        $form->setTitle($this->cfg->getNested("fly.title-form"));
         $form->setContent($this->cfg->getNested("fly.content"));
 	$form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
         $form->addButton($this->cfg->getNested("ui.on.btn"), $this->cfg->getNested("ui.on.img-type"), $this->cfg->getNested("ui.on.img-url"));
@@ -215,7 +215,7 @@ class DonatorUI extends PluginBase implements Listener{
   }
 
     });
-    $form->setTitle($this->cfg->getNested("gm.title"));
+    $form->setTitle($this->cfg->getNested("gm.title-form"));
     $form->addLabel($this->cfg->getNested("gm.content"));
     $form->addDropdown("Gamemodes", ["Survival", "Creative", "Spectator"]);
     $form->sendToPlayer($sender);
@@ -244,8 +244,8 @@ class DonatorUI extends PluginBase implements Listener{
         $form->setTitle($this->cfg->getNested("nickmain.title"));
         $form->setContent($this->cfg->getNested("nickmain.content"));
         $form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
-        $form->addButton($this->cfg->getNested("nickmain.edit.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
-        $form->addButton($this->cfg->getNested("nickmain.reset.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
+        $form->addButton($this->cfg->getNested("nickmain.edit.btn"), $this->cfg->getNested("nickmain.edit.img-type"), $this->cfg->getNested("nickmain.edit.img-url"));
+        $form->addButton($this->cfg->getNested("nickmain.reset.btn"), $this->cfg->getNested("nickmain.reset.img-type"), $this->cfg->getNested("nickmain.reset.img-url"));
         $form->sendToPlayer($sender);
         }
      
@@ -254,16 +254,16 @@ class DonatorUI extends PluginBase implements Listener{
                     if($data !== null){
 			$sender->setDisplayName("#$data[1]");
 			$sender->setNameTag("#$data[1]");
-			$sender->sendMessage($this->getConfig()->get("nick.msg"));
+			$sender->sendMessage($this->cfg->getNested("nick.msg"));
 			$sender->addTitle("§b#$data[1]","§aSet");
 		}
 	});
-	$form->setTitle($this->getConfig()->get("nick.title"));
-	$form->addLabel($this->getConfig()->get("nick.label"));
+	$form->setTitle($this->cfg->getNested("nick.title-form"));
+	$form->addLabel($this->cfg->getNested("nick.label"));
 	$form->addInput("Put your nick name here:", "Nickname");
 	$form->sendToPlayer($sender);
 	}
-		
+// MAMAYA NA
     public function CrawlUI($sender){
       $form = new SimpleForm(function (Player $sender, $data){
             $result = $data;
@@ -271,18 +271,17 @@ class DonatorUI extends PluginBase implements Listener{
             }
             switch ($result) {
                     case 0:
-                    	$command = "donator" ;
-                    	$this->getServer()->getCommandMap()->dispatch($sender, $command);
+                    	$this->getServer()->getCommandMap()->dispatch($sender, "donator");
                         break;
                     case 1:
                     	$sender->setCanClimbWalls(true);
-                    	$sender->sendMessage($this->getConfig()->get("crawl.on"));
-                    	$sender->addTitle("§bCrawl", "§aEnabled!");
+                    	$sender->sendMessage($this->cfg->getNested("crawl.on"));
+                    	$sender->addTitle();
                         break;
                     case 2:
                     	$sender->setCanClimbWalls(false);
-                    	$sender->sendMessage($this->getConfig()->get("crawl.off"));
-                    	$sender->addTitle("§bCrawl", "§cDisabled!");
+                    	$sender->sendMessage($this->cfg->getNested("crawl.off"));
+                    	$sender->addTitle();
                         break;
             }
         });
