@@ -10,6 +10,7 @@ use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\Player;
 use pocketmine\Server;
+use pocketmine\utils\Config;
 
 use Hytlenz\forms_by_jojoe\{SimpleForm, CustomForm};
 
