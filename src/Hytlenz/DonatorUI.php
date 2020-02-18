@@ -345,7 +345,7 @@ class DonatorUI extends PluginBase implements Listener{
                         break;
             }
         });
-        $form->setTitle($this->cfg->getNested("size.title"));
+        $form->setTitle($this->cfg->getNested("size.title-form"));
         $form->setContent($this->cfg->getNested("size.content"));
         $form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
 	$form->addButton($this->cfg->getNested("size.baby-button.btn"), $this->cfg->getNested("size.baby-button.img-type"), $this->cfg->getNested("size.baby-button.img-url"));
