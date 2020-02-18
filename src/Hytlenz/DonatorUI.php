@@ -15,14 +15,14 @@ use Hytlenz\forms_by_jojoe\{SimpleForm, CustomForm};
 
 class DonatorUI extends PluginBase implements Listener{
     
-    public function onEnable(){
-        $this->getLogger()->info("DonatorUI - Service Connected..");
+    public function onEnable()
+    {
+        $this->getLogger()->info("is Enable");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         
         @mkdir($this->getDataFolder());
 	$this->saveResource("config.yml");
         $this->cfg = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-
     }
 
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args):bool
@@ -41,7 +41,7 @@ class DonatorUI extends PluginBase implements Listener{
             }
             switch ($result) {
                     case 0:
-                    	$sender->addTitle("§bThank You", "§aFor Using.");
+			$sender->addTitle($this->cfg->getNested("exit.title"), $this->cfg->getNested("exit.subtitle"));
                         break;
                     case 1:
                     	$sender->setHealth($sender->getMaxHealth());
@@ -82,7 +82,7 @@ class DonatorUI extends PluginBase implements Listener{
         });
         $form->setTitle($this->cfg->getNested("donator.title"));
         $form->setContent($this->cfg->getNested("donator.content"));
-        $form->addButton("§4Exit");
+        $form->addButton($this->cfg->getNested("exit.btn"), $this->cfg->getNested("exit.img-type"), $this->cfg->getNested("exit.img-url"));
         $form->addButton($this->cfg->getNested("cure.btn"), $this->cfg->getNested("cure.img-type"), $this->cfg->getNested("cure.img-url"));
 	$form->addButton($this->cfg->getNested("effect.btn"), $this->cfg->getNested("effect.img-type"), $this->cfg->getNested("effect.img-url"));
         $form->addButton($this->cfg->getNested("fly.btn"), $this->cfg->getNested("fly.img-type"), $this->cfg->getNested("fly.img-url")); 
@@ -107,8 +107,7 @@ class DonatorUI extends PluginBase implements Listener{
             }
             switch ($result) {
                     case 0:
-                    	$command = "donator" ;
-                    	$this->getServer()->getCommandMap()->dispatch($sender, $command);
+                    	$this->getServer()->getCommandMap()->dispatch($sender, "donator");
                         break;
                     case 1:
 			$sender->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, true);
@@ -140,8 +139,7 @@ class DonatorUI extends PluginBase implements Listener{
             }
             switch ($result) {
                     case 0:
-                    	$command = "donator" ;
-                    	$this->getServer()->getCommandMap()->dispatch($sender, $command);
+                    	$this->getServer()->getCommandMap()->dispatch($sender, "donator");
 			break;
                     case 1:
                     	$sender->addEffect(new EffectInstance(Effect::getEffect(Effect::NIGHT_VISION), 99999999, 0, false));
@@ -170,8 +168,7 @@ class DonatorUI extends PluginBase implements Listener{
             }
             switch ($result) {
                     case 0:
-                     	$command = "donator" ;
-                    	$this->getServer()->getCommandMap()->dispatch($sender, $command);
+                    	$this->getServer()->getCommandMap()->dispatch($sender, "donator");
 			break;
                     case 1:
                     	$sender->setAllowFlight(true);
@@ -228,8 +225,7 @@ class DonatorUI extends PluginBase implements Listener{
             }
             switch ($result) {
                     case 0:
-                    	$command = "donator" ;
-                    	$this->getServer()->getCommandMap()->dispatch($sender, $command);
+                    	$this->getServer()->getCommandMap()->dispatch($sender, "donator");
                         break;
                     case 1:
                     	$this->NickUI($sender);
@@ -285,11 +281,11 @@ class DonatorUI extends PluginBase implements Listener{
                         break;
             }
         });
-        $form->setTitle($this->getConfig()->get("crawl.title"));
-        $form->setContent($this->getConfig()->get("crawl.content"));
-        $form->addButton("§lBack");
-        $form->addButton("§l§2On");
-        $form->addButton("§l§4Off");
+        $form->setTitle($this->cfg->getNested("crawl.title"));
+        $form->setContent($this->cfg->getNested("crawl.content"));
+        $form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
+        $form->addButton($this->cfg->getNested("ui.on.btn"), $this->cfg->getNested("ui.on.img-type"), $this->cfg->getNested("ui.on.img-url"));
+	$form->addButton($this->cfg->getNested("ui.off.btn"), $this->cfg->getNested("ui.off.img-type"), $this->cfg->getNested("ui.off.img-url"));
         $form->sendToPlayer($sender);
        }
 	
@@ -299,13 +295,11 @@ class DonatorUI extends PluginBase implements Listener{
                  switch($data[1]) {
                	case 0:
                 	$sender->getLevel()->setTime(0);
-                	$sender->addTitle("§bDay", "§aTime");
-                	$sender->sendMessage($this->getConfig()->get("time.day"));
+                	$sender->sendMessage($this->cfg->getNested("time.day"));
                     	break;
                 case 1:
 			$sender->getLevel()->setTime(15000);
-                	$sender->addTitle("§bNight", "§aTime");
-                	$sender->sendMessage($this->getConfig()->get("time.night"));
+                	$sender->sendMessage($this->cfg->getNested("time.night"));
                     	break;
                default:
                    return;
@@ -313,8 +307,8 @@ class DonatorUI extends PluginBase implements Listener{
     }
 
     });
-    $form->setTitle($this->getConfig()->get("time.title"));
-    $form->addLabel($this->getConfig()->get("time.content"));
+    $form->setTitle($this->cfg->getNested("time.title"));
+    $form->addLabel($this->cfg->getNested("time.content"));
     $form->addDropdown("Time Set", ["Day", "Night"]);
     $form->sendToPlayer($sender);
     }
@@ -325,49 +319,43 @@ class DonatorUI extends PluginBase implements Listener{
             if ($result == null) {
             }
             switch ($result) {
-                    case 0:
-                    	$command = "donator" ;
-                    	$this->getServer()->getCommandMap()->dispatch($sender, $command);
+		    case 0:
+                    	$this->getServer()->getCommandMap()->dispatch($sender, "donator");
                         break;
                     case 1:
                     	$sender->setScale(0.4);
-                    	$sender->sendMessage($this->getConfig()->get("size.baby"));
-                    	$sender->addTitle("§bBaby", "§aSize!");
+                    	$sender->sendMessage($this->cfg->getNested("size.baby"));
                         break;
                     case 2:
                     	$sender->setScale(0.6);
-                    	$sender->sendMessage($this->getConfig()->get("size.kid"));
-                    	$sender->addTitle("§bKid", "§aSize!");
+                    	$sender->sendMessage($this->cfg->getNested("size.kid"));
                         break;
 		    case 3:
                     	$sender->setScale(0.8);
-                    	$sender->sendMessage($this->getConfig()->get("size.teen"));
-                    	$sender->addTitle("§bTeen", "§aDisabled!");
+                    	$sender->sendMessage($this->cfg->getNested("size.teen"));
                         break;
 		    case 4:
                     	$sender->setScale(1.0);
-                    	$sender->sendMessage($this->getConfig()->get("size.default"));
-                    	$sender->addTitle("§bDefault", "§aSize!");
+                    	$sender->sendMessage($this->cfg->getNested("size.default"));
                         break;
 		    case 5:
                     	$sender->setScale(1.5);
-                    	$sender->sendMessage($this->getConfig()->get("size.giant"));
-                    	$sender->addTitle("§bGiant", "§aSize!");
+                    	$sender->sendMessage($this->cfg->getNested("size.giant"));
                         break;
             }
         });
-        $form->setTitle($this->getConfig()->get("size.title"));
-        $form->setContent($this->getConfig()->get("size.content"));
-        $form->addButton("§lBack");
-	$form->addButton("§lBaby");
-        $form->addButton("§lKid");
-        $form->addButton("§lTeen");
-	$form->addButton("§lDefault");
-	$form->addButton("§lGiant");
+        $form->setTitle($this->cfg->getNested("size.title"));
+        $form->setContent($this->cfg->getNested("size.content"));
+        $form->addButton($this->cfg->getNested("ui.back.btn"), $this->cfg->getNested("ui.back.img-type"), $this->cfg->getNested("ui.back.img-url"));
+	$form->addButton($this->cfg->getNested("size.baby-button.btn"), $this->cfg->getNested("size.baby-button.img-type"), $this->cfg->getNested("size.baby-button.img-url"));
+        $form->addButton($this->cfg->getNested("size.kid-button.btn"), $this->cfg->getNested("size.kid-button.img-type"), $this->cfg->getNested("size.kid-button.img-url"));
+        $form->addButton($this->cfg->getNested("size.teen-button.btn"), $this->cfg->getNested("size.teen-button.img-type"), $this->cfg->getNested("size.teen-button.img-url"));
+	$form->addButton($this->cfg->getNested("size.default-button.btn"), $this->cfg->getNested("size.default-button.img-type"), $this->cfg->getNested("size.default-button.img-url"));
+	$form->addButton($this->cfg->getNested("size.giant-button.btn"), $this->cfg->getNested("size.giant-button.img-type"), $this->cfg->getNested("size.giant-button.img-url"));
         $form->sendToPlayer($sender);
        }
 
     public function onDisable(){
-        $this->getLogger()->info("DonatorUI - Service Disconnected..");
+        $this->getLogger()->info("is Disable");
     }
 }
