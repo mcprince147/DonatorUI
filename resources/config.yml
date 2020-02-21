@@ -157,22 +157,22 @@ size:
  giant: "§l§8(§b!§8) §r§aYour Size is Giant!"
  baby-button:
   btn: "§lBaby"
-  img-type: 1
+  img-type: 0
   img-url: "textures/ui/conduit_power_effect"
  kid-button:
   btn: "§lKid"
-  img-type: 1
+  img-type: 0
   img-url: "textures/ui/conduit_power_effect"
  teen-button:
   btn: "§lTeen"
-  img-type: 1
+  img-type: 0
   img-url: "textures/ui/conduit_power_effect"
  default-button:
   btn: "§lDefault"
-  img-type: 1
+  img-type: 0
   img-url: "textures/ui/conduit_power_effect"
  giant-button:
   btn: "§lGiant"
-  img-type: 1
+  img-type: 0
   img-url: "textures/ui/conduit_power_effect"
 ...
