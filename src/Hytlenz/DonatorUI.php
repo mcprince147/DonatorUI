@@ -3,13 +3,10 @@
 namespace Hytlenz;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
+use pocketmine\command\{Command, CommandSender};
 use pocketmine\event\Listener;
-use pocketmine\entity\Effect;
-use pocketmine\entity\EffectInstance;
-use pocketmine\Player;
-use pocketmine\Server;
+use pocketmine\entity\{Effect, EffectInstance, Entity};
+use pocketmine\{Player, Server};
 use pocketmine\utils\Config;
 
 use Hytlenz\forms_by_jojoe\{SimpleForm, CustomForm};
@@ -273,12 +270,10 @@ class DonatorUI extends PluginBase implements Listener{
                     case 1:
                     	$sender->setCanClimbWalls(true);
                     	$sender->sendMessage($this->cfg->getNested("crawl.on"));
-                    	$sender->addTitle();
                         break;
                     case 2:
                     	$sender->setCanClimbWalls(false);
                     	$sender->sendMessage($this->cfg->getNested("crawl.off"));
-                    	$sender->addTitle();
                         break;
             }
         });
