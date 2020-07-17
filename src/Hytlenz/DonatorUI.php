@@ -29,7 +29,7 @@ class DonatorUI extends PluginBase implements Listener{
         case "donator":
         if(!($sender instanceof Player)){
         	if($sender->hasPermission("donator.ui")){
-                $sender->addTitle($this->cfg->getNested("error.title"), $this->cfg->getNested("error.subtitle"));
+                $sender->sendTitle($this->cfg->getNested("error.title"), $this->cfg->getNested("error.subtitle"));
                 return true;
         }
     }
@@ -39,18 +39,18 @@ class DonatorUI extends PluginBase implements Listener{
             }
             switch ($result) {
                     case 0:
-			$sender->addTitle($this->cfg->getNested("exit.title"), $this->cfg->getNested("exit.subtitle"));
+			$sender->sendTitle($this->cfg->getNested("exit.title"), $this->cfg->getNested("exit.subtitle"));
                         break;
                     case 1:
                     	$sender->setHealth($sender->getMaxHealth());
                     	$sender->setFood(20);
                     	$sender->sendMessage($this->cfg->getNested("cure.msg"));
-                    	$sender->addTitle($this->cfg->getNested("cure.title"), $this->cfg->getNested("cure.subtitle"));
+                    	$sender->sendTitle($this->cfg->getNested("cure.title"), $this->cfg->getNested("cure.subtitle"));
 			break;
 		    case 2:
 		    	$sender->removeAllEffects();
 		        $sender->sendMessage($this->cfg->getNested("effect.msg"));
-                    	$sender->addTitle($this->cfg->getNested("effect.title"), $this->cfg->getNested("effect.subtitle"));
+                    	$sender->sendTitle($this->cfg->getNested("effect.title"), $this->cfg->getNested("effect.subtitle"));
                         break;
                     case 3:
                     	$this->FlyUI($sender);
@@ -110,13 +110,13 @@ class DonatorUI extends PluginBase implements Listener{
                     case 1:
 			$sender->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, true);
 			$sender->setNameTagVisible(false);
-			$sender->addTitle($this->cfg->getNested("vanish.title"), $this->cfg->getNested("vanish.on"));
+			$sender->sendTitle($this->cfg->getNested("vanish.title"), $this->cfg->getNested("vanish.on"));
                     	$sender->sendMessage($this->cfg->getNested("vanish.on"));
                         break;
                     case 2:
                     	$sender->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, false);
 			$sender->setNameTagVisible(true);
-			$sender->addTitle($this->cfg->getNested("vanish.title"), $this->cfg->getNested("vanish.off"));
+			$sender->sendTitle($this->cfg->getNested("vanish.title"), $this->cfg->getNested("vanish.off"));
                     	$sender->sendMessage($this->cfg->getNested("vanish.off"));
                         break;
                     	
@@ -141,12 +141,12 @@ class DonatorUI extends PluginBase implements Listener{
 			break;
                     case 1:
                     	$sender->addEffect(new EffectInstance(Effect::getEffect(Effect::NIGHT_VISION), 99999999, 0, false));
-                    	$sender->addTitle($this->cfg->getNested("lights.title"), $this->cfg->getNested("lights.on"));
+                    	$sender->sendTitle($this->cfg->getNested("lights.title"), $this->cfg->getNested("lights.on"));
                     	$sender->sendMessage($this->cfg->getNested("lights.on"));
                         break;
                     case 2:
                     	$sender->removeEffect(Effect::NIGHT_VISION);
-                    	$sender->addTitle($this->cfg->getNested("lights.title"), $this->cfg->getNested("lights.off"));
+                    	$sender->sendTitle($this->cfg->getNested("lights.title"), $this->cfg->getNested("lights.off"));
 			$sender->sendMessage($this->cfg->getNested("lights.off"));
                         break;
             }
@@ -171,12 +171,12 @@ class DonatorUI extends PluginBase implements Listener{
                     case 1:
                     	$sender->setAllowFlight(true);
                     	$sender->sendMessage($this->cfg->getNested("fly.on"));
-                    	$sender->addTitle($this->cfg->getNested("fly.title"), $this->cfg->getNested("fly.on"));
+                    	$sender->sendTitle($this->cfg->getNested("fly.title"), $this->cfg->getNested("fly.on"));
                         break;
                     case 2:
                     	$sender->setAllowFlight(false);
                     	$sender->sendMessage($this->cfg->getNested("fly.off"));
-                    	$sender->addTitle($this->cfg->getNested("fly.title"), $this->cfg->getNested("fly.off"));
+                    	$sender->sendTitle($this->cfg->getNested("fly.title"), $this->cfg->getNested("fly.off"));
                         break;
             }
         });
@@ -249,7 +249,7 @@ class DonatorUI extends PluginBase implements Listener{
 			$sender->setDisplayName("#$data[1]");
 			$sender->setNameTag("#$data[1]");
 			$sender->sendMessage($this->cfg->getNested("nick.msg"));
-			$sender->addTitle("§b#$data[1]","§aSet");
+			$sender->sendTitle("§b#$data[1]","§aSet");
 		}
 	});
 	$form->setTitle($this->cfg->getNested("nick.title-form"));
@@ -257,7 +257,7 @@ class DonatorUI extends PluginBase implements Listener{
 	$form->addInput("Put your nick name here:", "Nickname");
 	$form->sendToPlayer($sender);
 	}
-// MAMAYA NA
+
     public function CrawlUI($sender){
       $form = new SimpleForm(function (Player $sender, $data){
             $result = $data;
