@@ -2,7 +2,7 @@ name: DonatorUI
 version: 3.5
 main: Hytlenz\DonatorUI
 api: [3.0.0, 3.14.0, 4.0.0]
-author: Hytlenz
+author: Mcprince
 description: Special Forms for Donators in your Server
 
 commands:
